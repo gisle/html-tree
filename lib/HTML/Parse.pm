@@ -107,10 +107,11 @@ for (qw(title base link meta isindex nextid)) {
 # Elements that should only be present in the body
 for (qw(h1 h2 h3 h4 h5 h6
 	p pre address blockquote
+	xmp listing
 	a img br hr
 	ol ul dir menu li
 	dl dt dd
-	cite code em kbd samp strong var
+	cite code em kbd samp strong var dfn strike
 	b i u tt
 	table tr td th caption
 	form input select option textarea
@@ -164,16 +165,15 @@ sub parse_html
     $html = new HTML::Element 'html' unless defined $html;
     my $buf = \ $html->{'_buf'};
     $$buf .= $_[0];
-
     # Handle comments
     if ($html->{_comment}) {
-	if ($$buf =~ s/.*-->//s) {        # end of comment
+	if ($$buf =~ s/^.*?-->//s) {        # end of comment
 	    delete $html->{_comment};
 	} else {
 	    $$buf = '';          # still inside comment
 	}
     }
-    $$buf =~ s/<!--.*?-->//s;    # remove complete comments
+    $$buf =~ s/<!--.*?-->//sg;   # remove complete comments
     if ($$buf =~ s/<!--.*//s) {  # check for start of comment
 	$html->{_comment} = 1;
     }
@@ -419,7 +419,7 @@ sub text
     my @text = @_;
     HTML::Entities::decode(@text) unless $IGNORE_TEXT;
 
-    if ($pos->isInside('pre')) {
+    if ($pos->isInside(qw(pre xmp listing))) {
 	return if $IGNORE_TEXT;
 	$pos->pushContent(@text);
     } else {
