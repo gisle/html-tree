@@ -341,7 +341,7 @@ sub traverse
 		&$callback($_, 1, $depth+1) unless $ignoretext;
 	    }
 	}
-	&$callback($self, 0, $depth);
+	&$callback($self, 0, $depth) unless $noEndTag{$self->{_tag}};
     }
     $self;
 }
