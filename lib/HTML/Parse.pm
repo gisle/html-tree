@@ -212,7 +212,7 @@ sub parse_htmlfile
     my $file = shift;
     open(F, $file) or return new HTML::Element 'html', 'comment' => $!;
     my $html = undef;
-    my $chunk;
+    my $chunk = '';
     while(read(F, $chunk, 1024)) {
 	$html = parse_html($chunk, $html);
     }
