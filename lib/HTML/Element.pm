@@ -49,13 +49,13 @@ sub Version { $VERSION; }
 # Link elements an the name of the link attribute
 %linkElements =
 (
- body  => 'background',
- base  => 'href',
- a     => 'href',
- img   => 'src',
- form  => 'action',
- link  => 'href',
- frame => 'src',
+ body   => 'background',
+ base   => 'href',
+ a      => 'href',
+ img    => 'src',
+ form   => 'action',
+ 'link' => 'href',   # need quotes since link is a perl builtin
+ frame  => 'src',
 );
 
 
