@@ -157,7 +157,7 @@ sub warn           { shift->_elem('_warn',           @_); }
 sub warning
 {
     my $self = shift;
-    CORE:warn("HTML::Parse: $_[0]\n") if $self->{'_warn'};
+    CORE::warn("HTML::Parse: $_[0]\n") if $self->{'_warn'};
 }
 
 sub start
