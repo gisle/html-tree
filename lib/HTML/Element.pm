@@ -268,13 +268,13 @@ sub pushContent
 
 
 
-=item ->deleteContent
+=item ->deleteContent()
 
 Clears the content.
 
 =cut
 
-sub deleteContent()
+sub deleteContent
 {
     my $self = shift;
     for (@{$self->{'_content'}}) {
