@@ -107,11 +107,13 @@ Gisle Aas <aas@oslonett.no>
 =cut
 
 use Carp;
+use strict;
+use vars qw(@ISA $VERSION);
 
 require HTML::Formatter;
 @ISA = qw(HTML::Formatter);
 
-use strict;
+$VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
 
 use vars qw(%PaperSizes %FontFamilies @FontSizes %param $DEBUG);
 

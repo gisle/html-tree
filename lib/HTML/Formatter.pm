@@ -44,6 +44,9 @@ use strict;
 use Carp;
 use UNIVERSAL qw(can);
 
+use vars qw($VERSION);
+$VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
+
 sub new
 {
     my($class,%arg) = @_;

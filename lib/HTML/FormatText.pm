@@ -51,10 +51,14 @@ Gisle Aas <aas@oslonett.no>
 
 =cut
 
+use strict;
+use vars qw(@ISA $VERSION);
+
 require HTML::Formatter;
 @ISA = qw(HTML::Formatter);
 
-use strict;
+$VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
+
 
 sub default_values
 {
