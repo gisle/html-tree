@@ -112,7 +112,7 @@ for (qw(h1 h2 h3 h4 h5 h6
 	ol ul dir menu li
 	dl dt dd
 	cite code em kbd samp strong var dfn strike
-	b i u tt
+	b i u tt small big
 	table tr td th caption
 	form input select option textarea
        )
