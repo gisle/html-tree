@@ -254,7 +254,7 @@ sub findfont
     }
     $self->{currentfont} = $font_with_size;
     $self->{pointsize} = $size;
-    my $fontmod = "Font::$font";
+    my $fontmod = "Font::Metrics::$font";
     $fontmod =~ s/-//g;
     my $fontfile = $fontmod . ".pm";
     $fontfile =~ s,::,/,g;
