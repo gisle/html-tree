@@ -399,6 +399,13 @@ sub li_end
     }
 }
 
+BEGIN {
+    *menu_start = \&ul_start;
+    *menu_end   = \&ul_end;
+    *dir_start  = \&ul_start;
+    *dir_end    = \&ul_end;
+}
+
 sub ol_start
 {
     my $self = shift;
