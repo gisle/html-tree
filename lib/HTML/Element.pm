@@ -59,7 +59,7 @@ for (qw(base link meta isindex nextid
 );
 
 
-# Elements that act as paragraph 
+# Elements that act as paragraph
 for (qw(p form h1 h2 h3 h4 h5 h6
 	blockquote hr title body
        )){
@@ -518,13 +518,13 @@ sub as_HTML
 		    }
 		    $html .= join "\n" . "  " x ($depth+1), @m, $copy;
 		    $pos = length $copy;
-  		}
+		}
 		if (substr($html,length($html)-1) =~ /\s/) {
 		    $black = 0;
 		    $pos = 0;
 		} else {
 		    $black = 1;
-  		}
+		}
 	    }
 	}
     }

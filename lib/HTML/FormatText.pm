@@ -126,7 +126,7 @@ sub out
 	$self->nl;
 	$self->goto_lm;
     }
-    
+
     if ($self->{pending_space}) {
 	$self->{pending_space} = 0;
 	$self->collect(' ');
