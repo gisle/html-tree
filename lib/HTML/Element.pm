@@ -41,7 +41,9 @@ use Carp;
 $VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
 sub Version { $VERSION; }
 
-%OVERLOAD = ( '""'=>'asHTML', 'fallback'=>1 );      # EXPERIMENTAL
+# %OVERLOAD = ( '""'=>'asHTML', 'fallback'=>1 );
+# Overloading triggers a bug where content might be lost.  I have not
+# managed to locate this failure.
 
 # Elements that does not have corresponding end tags
 for (qw(base link meta isindex nextid
