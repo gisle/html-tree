@@ -6,6 +6,7 @@ WriteMakefile(
     'VERSION'      => '0.01',
     'PREREQ_PM'    => {	
 	                 'HTML::Parser' => 2.14,
+		         'Font::AFM'    => 1.17,
 		      },
     dist           => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 );
