@@ -442,7 +442,7 @@ sub show
     my $self = shift;
     my $str = $self->{showstring};
     return unless length $str;
-    $str =~ s/([\(\)])/\\$1/g;    # must escape parentesis
+    $str =~ s/([\(\)\\])/\\$1/g;    # must escape parentesis
     $self->{line} .= "($str)S\n";
     $self->{showstring} = "";
 }
