@@ -262,7 +262,17 @@ sub pushContent
 {
     my $self = shift;
     $self->{'_content'} = [] unless exists $self->{'_content'};
-    push(@{$self->{'_content'}}, @_);
+    my $content = $self->{'_content'};
+    if (@$content && !ref $content->[-1]) {  # last element is a text segment
+	if (ref $_[0]) {
+	    push(@$content, @_);
+	} else {
+	    # just join the text segments together
+	    $content->[-1] .= $_[0];
+	}
+    } else {
+       push(@$content, @_);
+    }
     $self;
 }
 
