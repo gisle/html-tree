@@ -44,7 +44,7 @@ sub Version { $VERSION; }
 %OVERLOAD =
 (
    '""'     => 'as_HTML',
-   fallback => 0
+   fallback => 1
 );
 
 # Elements that does not have corresponding end tags
