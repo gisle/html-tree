@@ -1,6 +1,7 @@
 Changes
 MANIFEST
 Makefile.PL
+README
 dtd2pm
 ent
 lib/HTML/AsSubs.pm
@@ -10,3 +11,6 @@ lib/HTML/FormatText.pm
 lib/HTML/Formatter.pm
 lib/HTML/Parse.pm
 lib/HTML/TreeBuilder.pm
+t/oldparse.t
+t/parsefile.t
+t/split.t
