@@ -364,9 +364,6 @@ sub extractLinks
 	    return unless defined $attr;
 	    $attr = $self->attr($attr);
 	    return unless defined $attr;
-	    if (@types) {
-		
-	    }
 	    push(@links, [$attr, $self]);
 	}, 1);
     \@links;
