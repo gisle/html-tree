@@ -41,9 +41,11 @@ use Carp;
 $VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
 sub Version { $VERSION; }
 
-# %OVERLOAD = ( '""'=>'asHTML', 'fallback'=>1 );
-# Overloading triggers a bug where content might be lost.  I have not
-# managed to locate this failure.
+%OVERLOAD =
+(
+   '""'     => 'asHTML',
+   fallback => 0
+);
 
 # Elements that does not have corresponding end tags
 for (qw(base link meta isindex nextid
@@ -210,7 +212,8 @@ sub pos
 {
     my $self = shift;
     my $pos = $self->attr('_pos', @_);
-    $pos || $self;
+    return $pos if defined($pos);
+    $self;
 }
 
 
@@ -456,11 +459,12 @@ sub asHTML
 		    $pos += length $_;
 		    next;
 		}
-		while (s/^(.{60,}?)\s//) {
+		my $copy = $_;
+		while ($copy =~ s/^(.{60,}?)\s//) {
 		    $html .= "\n" . ("  " x ($depth+1)) . $1;
 		}
-		$html .= "\n" . ("  " x ($depth+1)) . $_;
-		$pos = length $_;
+		$html .= "\n" . ("  " x ($depth+1)) . $copy;
+		$pos = length $copy;
 	    }
 	}
     }
