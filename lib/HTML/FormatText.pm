@@ -101,7 +101,7 @@ sub pre_out
     }
     my $indent = ' ' x $self->{lm};
     my $pre = shift;
-    $pre =~ s/^/$indent/gm;
+    $pre =~ s/\n/\n$indent/g;
     $self->collect($pre);
     $self->{out}++;
 }
