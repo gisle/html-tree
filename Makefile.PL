@@ -5,7 +5,7 @@ WriteMakefile(
     'NAME'	   => 'HTML-Tree',
     'VERSION'      => '0.51',
     'PREREQ_PM'    => {	
-	                 'HTML::Parser' => 2.14,
+	                 'HTML::Parser' => 2.19,
 		         'Font::AFM'    => 1.17,
 		      },
     dist           => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
