@@ -463,7 +463,7 @@ sub dump
 
 =item ->asHTML()
 
-Retuns a string (the HTML document) that represents the element and
+Returns a string (the HTML document) that represents the element and
 its children.
 
 =cut
@@ -502,7 +502,7 @@ sub asHTML
 	    }
 	}
     }
-    unless ($noEndTag{$tag} || $tag eq 'p') {
+    unless ($noEndTag{$tag} || $tag eq 'p' || $tag eq 'li' || $tag eq 'dt') {
 	unless ($pre) {
 	    $html .= "\n";
 	    $html .= "  " x $depth;
