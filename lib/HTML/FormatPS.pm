@@ -95,14 +95,14 @@ L<HTML::Formatter>
 
 =head1 COPYRIGHT
 
-Copyright (c) 1995-1997 Gisle Aas. All rights reserved.
+Copyright (c) 1995-1998 Gisle Aas. All rights reserved.
 
 This library is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Gisle Aas <aas@oslonett.no>
+Gisle Aas <aas@sn.no>
 
 =cut
 

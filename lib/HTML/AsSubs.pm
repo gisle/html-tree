@@ -23,7 +23,7 @@ HTML::AsSubs - functions that construct a HTML syntax tree
 This module exports functions that can be used to construct various
 HTML elements. The functions are named after the tags of the
 correponding HTML element and are all written in lower case. If the
-first argument is a I<hash> then it will be used to initialize the
+first argument is a hash reference then it will be used to initialize the
 attributes of this element. The remaining arguments are regarded as
 content.
 
