@@ -8,12 +8,14 @@ HTML::FormatPS - Format HTML as postscript
 
 =head1 SYNOPSIS
 
+  require HTML::TreeBuilder;
+  $tree = HTML::TreeBuilder->new->parse_file("test.html");
+
   require HTML::FormatPS;
-  $html = parse_htmlfile("test.html");
   $formatter = new HTML::FormatPS
 		   FontFamily => 'Helvetica',
 		   PaperSize  => 'Letter';
-  print $formatter->format($html);
+  print $formatter->format($tree);
 
 =head1 DESCRIPTION
 
@@ -102,7 +104,7 @@ modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Gisle Aas <aas@sn.no>
+Gisle Aas <gisle@aas.no>
 
 =cut
 
