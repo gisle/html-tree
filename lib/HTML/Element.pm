@@ -83,7 +83,7 @@ sub new
     my $self  = bless { _tag => lc $tag }, $class;
     my($attr, $val);
     while (($attr, $val) = splice(@_, 0, 2)) {
-	$val = attr unless defined $val;
+	$val = $attr unless defined $val;
 	$self->{lc $attr} = $val;
     }
     if ($tag eq 'html') {
