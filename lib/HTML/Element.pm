@@ -217,7 +217,9 @@ sub isInside
 
 =item ->pos()
 
-Returns (and optionally sets) the current position.
+Returns (and optionally sets) the current position.  The position is a
+reference to a HTML::Element object that is part of the tree that has
+the current object as root.
 
 =cut
 
