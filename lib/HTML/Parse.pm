@@ -239,9 +239,9 @@ sub starttag
 	    $key = $1;
 	    if (defined $2) {
 		# read value
-		if ($elem =~ s/^"([^\"]+)"?\s*//) {       # doble quoted val
+		if ($elem =~ s/^"([^\"]*)"?\s*//) {       # doble quoted val
 		    $val = $1;
-		} elsif ($elem =~ s/^'([^\']+)'?\s*//) {  # single quoted val
+		} elsif ($elem =~ s/^'([^\']*)'?\s*//) {  # single quoted val
 		    $val = $1;
 		} elsif ($elem =~ s/^(\S*)\s*//) {        # unquoted val
 		    $val = $1;
