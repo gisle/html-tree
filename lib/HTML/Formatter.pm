@@ -53,7 +53,10 @@ sub format
 	    if (ref $node) {
 		my $tag = $node->tag;
 		my $func = $tag . '_' . ($start ? "start" : "end");
-		return $self->$func($node);
+		# We protect the call by eval, so we can recover if
+		# a handler is not defined for the tag.
+		my $retval = eval { $self->$func($node); };
+		return $@ ? 1 : $retval;
 	    } else {
 		$self->textflow($node);
 	    }
