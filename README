@@ -8,44 +8,50 @@ facilitate a separate development track.  Bug reports and discussions
 about these modules can still be sent to the <libwww-perl@ics.uci.edu>
 mailing list.
 
-The following modules are present in this collection:
+The modules present in this collection are:
 
   HTML::Element - represents the nodes of the HTML syntax trees.  The
         elements have other elements and text segments as children.
+        The HTML::Element class have methods to extract information
+        and to manipulate the structure of the tree.
 
   HTML::TreeBuilder - an HTML::Parser subclass that builds an HTML
-        syntax tree from HTML document text.
+        syntax tree from HTML document text.  The idea was that it
+        should manage to construct all the nodes that was not
+        explicitly mentioned in the source too.
 
   HTML::AsSubs - Easy way to build a syntax tree by nesting functions.
 
   HTML::Formatter - Base class for various formatters.  Formatters
         traverse a syntax tree and produce some textual output.  None
-        of the current formatters handle tables or forms.
+        of the current formatters handle tables or forms yet.
 
-  HTML::FormatText - Converts a syntax tree to plain readable text.
+  HTML::FormatText - Formatter that converts a syntax tree to plain
+        readable text.
 
-  HTML::FormatPS - Outputs PostScript code.
+  HTML::FormatPS - Formatter that outputs PostScript code.
 
 
 
 PREREQUISITES
 
 In order to install and use this package you will need Perl version
-5.004 or better.  You will also need to have the HTML::Parser module
-installed.  If you intend to use the PostScript formatter you need the
-Font-AFM distribution.  All of these should be available from CPAN.
+5.004 or better.  You will also need to have the HTML-Parser
+distribution installed.  If you intend to use the PostScript formatter
+you need the Font-AFM distribution.  All of these should be available
+from CPAN.
 
 
 
 INSTALLATION
 
-You install these modules, as you would install any perl module
-library, by running these commands:
+Just follow the usual procedure:
 
    perl Makefile.PL
    make
    make test
    make install
+
 
 
 COPYRIGHT
