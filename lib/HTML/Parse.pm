@@ -120,7 +120,7 @@ $IGNORE_TEXT    = 0;
 # The following elements must be directly contained in some other
 # element than body.
 
-%isPharseMarkup = map { $_ => 1 } qw(cite code em kbd samp strong var b i u tt
+%isPhraseMarkup = map { $_ => 1 } qw(cite code em kbd samp strong var b i u tt
 				     a img br hr
 				     wbr nobr center blink
 				     small big font basefont
