@@ -242,7 +242,7 @@ sub font_start
 {
     my($self, $elem) = @_;
     my $size = $elem->attr('size');
-    return unless defined $size;
+    return 1 unless defined $size;
     if ($size =~ /^\s*[+\-]/) {
 	my $base = $self->{basefont_size}[-1];
 	$size = $base + $size;
