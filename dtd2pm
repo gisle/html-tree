@@ -16,7 +16,7 @@
 $VERBOSE = 0;
 
 undef($/);
-$DTD = "HTML3.2.dtd";
+$DTD = "HTML32.dtd";
 
 open(DTD, $DTD) or die "Can't open $DTD: $!";
 $_ = <DTD>;
