@@ -169,8 +169,17 @@ sub starttag
 	    exists($boolean_attr{$name}) && $boolean_attr{$name} eq $_) {
 	    $tag .= " \U$_";
 	} else {
-	    HTML::Entities::encode_entities($val, '&">');
-	    $val = qq{"$val"} unless $val =~ /^\d+$/;
+	    if ($val !~ /^\d+$/) {
+		# count number of " compared to number of '
+		if (($val =~ tr/\"/\"/) > ($val =~ tr/\'/\'/)) {
+		    # use single quotes around the attribute value
+		    HTML::Entities::encode_entities($val, "&'>");
+		    $val = qq('$val');
+		} else {
+		    HTML::Entities::encode_entities($val, '&">');
+		    $val = qq{"$val"};
+		}
+	    }
 	    $tag .= qq{ \U$_\E=$val};
 	}
     }
