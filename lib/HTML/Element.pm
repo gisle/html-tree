@@ -78,7 +78,7 @@ sub Version { $VERSION; }
  dl     => 'compact',
  hr     => 'noshade',
  img    => 'ismap',
- input  => 'checked',
+ input  => { checked => 1, readonly => 1, disabled => 1 },
  menu   => 'compact',
  ol     => 'compact',
  option => 'selected',
@@ -168,7 +168,9 @@ sub starttag
 	next if /^_/;
 	my $val = $self->{$_};
 	if ($_ eq $val &&
-	    exists($boolean_attr{$name}) && $boolean_attr{$name} eq $_) {
+	    exists($boolean_attr{$name}) &&
+	    (ref($boolean_attr{$name}) ? $boolean_attr{$name}{$_} : 
+ 					 $boolean_attr{$name} eq $_)) {
 	    $tag .= " \U$_";
 	} else {
 	    if ($val !~ /^\d+$/) {
