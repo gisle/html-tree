@@ -565,7 +565,7 @@ __END__
 
 =head1 COPYRIGHT
 
-Copyright (c) 1995 Gisle Aas. All rights reserved.
+Copyright 1995 Gisle Aas. All rights reserved.
 
 This library is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
