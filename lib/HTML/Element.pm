@@ -420,14 +420,16 @@ sub extractLinks
     my @links;
     $self->traverse(
 	sub {
-	    my $self = shift;
+	    my($self, $start, $depth) = @_;
+	    return 1 unless $start;
 	    my $tag = $self->{'_tag'};
-	    return unless !$wantType || $wantType{$tag};
+	    return 1 if $wantType && !$wantType{$tag};
 	    my $attr = $linkElements{$tag};
-	    return unless defined $attr;
+	    return 1 unless defined $attr;
 	    $attr = $self->attr($attr);
-	    return unless defined $attr;
+	    return 1 unless defined $attr;
 	    push(@links, [$attr, $self]);
+	    1;
 	}, 1);
     \@links;
 }
