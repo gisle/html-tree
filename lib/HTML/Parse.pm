@@ -277,6 +277,7 @@ sub starttag
 	    }
 	} elsif ($tag eq 'head') {
 	    if ($ptag ne 'html' && $pos->isEmpty()) {
+
 		warn "Skipping nested <head> element\n";
 		return;
 	    }
@@ -335,6 +336,9 @@ sub starttag
 		    $ptag = $html->pos->tag;
 		    $pos = insertTag($html, 'select') unless $ptag eq 'select';
 		}
+	    } elsif ($isTableElement{$tag}) {
+		endtag($html, $tag);
+		$pos = insertTag($html, 'table') if !$pos->isInside('table');
 	    } elsif ($isPhraseMarkup{$tag}) {
 		if ($ptag eq 'body') {
 		    $pos = insertTag($html, 'p');
