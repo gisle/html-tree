@@ -419,9 +419,9 @@ sub text
 	} elsif ($ptag eq 'head') {
 	    endtag($html, 'head');
 	    $html->insertElement('body', 1);
-	    $pos = $html->insertElement($html, 'p', 1);
+	    $pos = $html->insertElement('p', 1);
 	} elsif ($ptag eq 'html') {
-	    $html->insertElement($html, 'body', 1);
+	    $html->insertElement('body', 1);
 	    $pos = $html->insertElement('p', 1);
 	} elsif ($ptag eq 'body' ||
 	       # $ptag eq 'li'   ||
