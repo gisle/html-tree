@@ -518,8 +518,7 @@ sub format
 	require HTML::FormatText;
 	$formatter = new HTML::FormatText;
     }
-    require HTML::Format;
-    HTML::Format::format($self, $formatter);
+    $formatter->format($self);
 }
 
 
