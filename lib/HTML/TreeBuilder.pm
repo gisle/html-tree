@@ -123,7 +123,10 @@ sub new
 {
     my $class = shift;
     my $self = HTML::Element->new('html');  # Initialize HTML::Element part
-    $self->{'_buf'} = '';  # The HTML::Parser part of us needs this
+    my $other_self = HTML::Parser->new;
+    %$self = (%$self, %$other_self);              # copy fields
+    bless $other_self, "SomethingReallyHarmless"; # unbless, avoid destructor
+    undef($other_self);
 
     # Initialize parser settings
     $self->{'_implicit_tags'}  = 1;
