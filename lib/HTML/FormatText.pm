@@ -8,10 +8,12 @@ HTML::FormatText - Format HTML as text
 
 =head1 SYNOPSIS
 
+ require HTML::TreeBuilder;
+ $tree = HTML::TreeBuilder->new->parse_file("test.html");
+
  require HTML::FormatText;
- $html = parse_htmlfile("test.html");
  $formatter = HTML::FormatText->new(leftmargin => 0, rightmargin => 50);
- print $formatter->format($html);
+ print $formatter->format($tree);
 
 =head1 DESCRIPTION
 
@@ -47,7 +49,7 @@ modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Gisle Aas <aas@sn.no>
+Gisle Aas <gisle@aas.no>
 
 =cut
 
