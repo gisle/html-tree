@@ -20,9 +20,9 @@ parse_htmlfile - Parse HTML text from file
 
 =head1 DESCRIPTION
 
-I<Disclaimer: This module is provided for backwards compatibility
-with ealier version of this library.  New code will probably prefer to
-use the HTML::Parser and HTML::TreeBuilder directly.>
+I<Disclaimer: This module is provided for backwards compatibility with
+earlier versions of this library.  New code will probably prefer to
+use the HTML::Parser and HTML::TreeBuilder modules directly.>
 
 The C<HTML::Parse> module provides functions to parse HTML documents.
 There are two functions exported by this module:
@@ -43,9 +43,9 @@ The return value from parse_html() is $obj.
 
 =item parse_htmlfile($file, [$obj])
 
-Same as parse_html(), but obtain HTML text from the named file.
+Same as parse_html(), but obtains HTML text from the named file.
 
-Returns UNDEF if the file could not be opened, or $obj otherwise.
+Returns C<undef> if the file could not be opened, or $obj otherwise.
 
 =back
 
