@@ -131,7 +131,8 @@ for (qw(wbr nobr center blink font basefont)) {
 
 for (qw(cite code em kbd samp strong var b i u tt
 	a img br hr
-	wbr nobr center blink font basefont
+	wbr nobr center blink
+        small big font basefont
 	table
        )
     ) {
