@@ -6,6 +6,12 @@ package HTML::Formatter;
 
 HTML::Formatter - Base class for HTML formatters
 
+=head1 SYNOPSIS
+
+ package HTML::FormatXX;
+ require HTML::Formatter;
+ @ISA=qw(HTML::Formatter);
+
 =head1 DESCRIPTION
 
 HTML formatters are able to format a HTML syntax tree into various
