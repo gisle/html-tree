@@ -170,18 +170,21 @@ sub implicit
 
 
 
-=item ->isInside('tag')
+=item ->isInside('tag',...)
 
-Returns true if this tag is contained inside the specified tag.
+Returns true if this tag is contained inside one of the specified tags.
 
 =cut
 
 sub isInside
 {
-    my($self, $tag) = @_;
+    my $self = shift;
     my $p = $self;
     while (defined $p) {
-	return 1 if $p->tag eq $tag;
+	my $ptag = $p->tag;
+	for (@_) {
+	    return 1 if $ptag eq $_;
+	}
 	$p = $p->parent;
     }
     0;
