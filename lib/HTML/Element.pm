@@ -211,7 +211,10 @@ Returns (and optionally sets) the current position.
 sub pos
 {
     my $self = shift;
-    my $pos = $self->attr('_pos', @_);
+    my $pos = $self->{_pos};
+    if (@_) {
+	$self->{_pos} = $_[0];
+    }
     return $pos if defined($pos);
     $self;
 }
@@ -263,6 +266,35 @@ sub isEmpty
     !exists($self->{'_content'}) || !@{$self->{'_content'}};
 }
 
+
+
+=item ->insertElement($element, $implicit)
+
+Inserts a new element at current position and sets the pos.
+
+=cut
+
+sub insertElement
+{
+    my($self, $tag, $implicit) = @_;
+    my $e;
+    if (ref $tag) {
+	$e = $tag;
+	$tag = $e->tag;
+    } else {
+	$e = new HTML::Element $tag;
+    }
+    $e->{_implicit} = 1 if $implicit;
+    my $pos = $self->{_pos};
+    $pos = $self unless defined $pos;
+    $e->{_parent} = $pos;
+    $pos->pushContent($e);
+    unless ($noEndTag{$tag}) {
+	$self->{_pos} = $e;
+	$pos = $e;
+    }
+    $pos;
+}
 
 
 =item ->pushContent($element)
