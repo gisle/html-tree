@@ -1,0 +1,12 @@
+Changes
+MANIFEST
+Makefile.PL
+dtd2pm
+ent
+lib/HTML/AsSubs.pm
+lib/HTML/Element.pm
+lib/HTML/FormatPS.pm
+lib/HTML/FormatText.pm
+lib/HTML/Formatter.pm
+lib/HTML/Parse.pm
+lib/HTML/TreeBuilder.pm
