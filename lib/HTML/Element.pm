@@ -41,6 +41,7 @@ use Carp;
 $VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
 sub Version { $VERSION; }
 
+%OVERLOAD = ( '""'=>'asHTML', 'fallback'=>1 );      # EXPERIMENTAL
 
 # Elements that does not have corresponding end tags
 for (qw(base link meta isindex nextid
@@ -78,7 +79,7 @@ sub new
     my $self  = bless { _tag => lc $tag }, $class;
     my($attr, $val);
     while (($attr, $val) = splice(@_, 0, 2)) {
-	$val = 1 unless defined $val;
+	$val = attr unless defined $val;
 	$self->{lc $attr} = $val;
     }
     if ($tag eq 'html') {
