@@ -293,6 +293,7 @@ needed because perl's reference counting does not work since we use
 circular references.
 
 =cut
+#'
 
 sub delete
 {
@@ -307,24 +308,30 @@ sub delete
 =item ->traverse(\&callback, [$ignoretext])
 
 Traverse the element and all its children.  For each node visited, the
-callback routine is called with the node and the depth as arguments.
-If the $ignoretext parameter is true, then the callback will not be
-called for text content.
+callback routine is called with the node, a startflag and the depth as
+arguments.  If the $ignoretext parameter is true, then the callback
+will not be called for text content.  The flag is 1 when we enter a
+node and 0 when we leave the node.
+
+If the return value from the callback is false then we will not
+traverse the children.
 
 =cut
 
 sub traverse
 {
     my($self, $callback, $ignoretext, $depth) = @_;
-    $depth |= 0;
+    $depth ||= 0;
 
-    &$callback($self, $depth);
-    for (@{$self->{'_content'}}) {
-	if (ref $_) {
-	    $_->traverse($callback, $ignoretext, $depth+1);
-	} else {
-	    &$callback($_, $depth+1) unless $ignoretext;
+    if (&$callback($self, 1, $depth)) {
+	for (@{$self->{'_content'}}) {
+	    if (ref $_) {
+		$_->traverse($callback, $ignoretext, $depth+1);
+	    } else {
+		&$callback($_, 1, $depth+1) unless $ignoretext;
+	    }
 	}
+	&$callback($self, 0, $depth);
     }
     $self;
 }
