@@ -279,8 +279,8 @@ sub width
     my $w = 0;
     my $wx = $self->{wx};
     my $sz = $self->{pointsize};
-    while ($_[0] =~ /(.)/g) {
-	$w += $wx->[ord $1] * $sz;
+    for (unpack("C*", $_[0])) {
+	$w += $wx->[$_] * $sz;
     }
     $w;
 }
