@@ -322,7 +322,7 @@ sub starttag
 		$ptag = $html->pos->tag;
 		$pos = insertTag($html, 'ul') unless $isList{$ptag};
 	    } elsif ($tag eq 'dt' || $tag eq 'dd') {
-		endtag($html, ['dt'. 'dd'], 'dl');
+		endtag($html, ['dt', 'dd'], 'dl');
 		$ptag = $html->pos->tag;
 		# Fix <dt> or <dd> outside <dl>
 		$pos = insertTag($html, 'dl') unless $ptag eq 'dl';
