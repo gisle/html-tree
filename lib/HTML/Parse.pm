@@ -196,7 +196,7 @@ sub parse_html
 	    endtag($html, lc $1);
 	} elsif (m/^<\s*\w+/) {
 	    starttag($html, $_);
-	} elsif (m/^<!\s*DOCTYPE\b/) {
+	} elsif (m/^<!\s*DOCTYPE\b/i) {
 	    # just ignore it
 	} else {
 	    text($html, $_);
