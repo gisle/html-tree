@@ -50,7 +50,7 @@ sub Version { $VERSION; }
 			             img br hr wbr
 			             input area param
 			            );
-%optionalEndTag = map { $_ => 1 } qw(p li dt dd option th tr td);
+%optionalEndTag = map { $_ => 1 } qw(p li dt dd option); # th tr td);
 
 # Elements that might contain links and the name of the link attribute
 %linkElements =
