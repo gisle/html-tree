@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     'NAME'	   => 'HTML-Tree',
-    'VERSION'      => '0.52',
+    'VERSION'      => '0.53',
     'PREREQ_PM'    => {	
 	                 'HTML::Parser' => 2.19,
 		         'Font::AFM'    => 1.17,
