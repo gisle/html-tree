@@ -113,7 +113,7 @@ sub out
 
     if (defined $self->{vspace}) {
 	if ($self->{out}) {
-	    $self->nl while $self->{vspace}-- > 0;
+	    $self->nl while $self->{vspace}-- >= 0;
 	    $self->goto_lm;
 	} else {
 	    $self->goto_lm;
