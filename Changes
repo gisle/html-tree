@@ -1,3 +1,11 @@
+1998-07-07   Gisle Aas <aas@sn.no>
+
+   Release 0.51
+
+   Avoid new warnings introduced by perl5.004_70
+
+
+
 1998-04-01   Gisle Aas <aas@sn.no>
 
    Release 0.50, the HTML::* modules the dealt with HTML syntax trees
