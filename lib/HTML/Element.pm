@@ -293,8 +293,9 @@ sub attr
 
 =head2 $h->content()
 
-Returns the content of this element.  The content is represented as an
-array of text segments and references to other HTML::Element objects.
+Returns the content of this element.  The content is represented as a
+reference to an array of text segments and references to other
+HTML::Element objects.
 
 =cut
 
